@@ -5,15 +5,15 @@ module SpainDni
   class Dni
     attr_accessor :id_number
 
-    def initialize id_number
+    def initialize(id_number)
       @id_number = id_number.to_s
     end
 
-    def is_dni?
+    def dni?
       !@id_number[0].match(/\d/).nil?
     end
 
-    def is_nie?
+    def nie?
       @id_number[0].match(/\d/).nil?
     end
 
@@ -23,7 +23,7 @@ module SpainDni
 
     def calculate_check
       nie_letters = { X: 0, Y: 1, Z: 2 }
-      number = if is_nie?
+      number = if nie?
                  [nie_letters[@id_number[0].to_sym], @id_number[1..-2]].join
                else
                  @id_number.chop
@@ -49,7 +49,7 @@ module SpainDni
 
     def id_type
       return nil unless valid?
-      is_nie? ? 'NIE' : 'DNI'
+      nie? ? 'NIE' : 'DNI'
     end
   end
 end
