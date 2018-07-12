@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{A gem to validate Spanish DNI/NIE numbers and generate fake ones}
   spec.description   = %q{This gem verifies the last letter or a DNI/NIE and has methods to generate fake ones for testing.}
-  spec.homepage      = "http://www.nevadastart.com"
+  spec.homepage      = "https://github.com/nevadajames/spain_dni"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
